@@ -73,7 +73,7 @@ COPY /y /z %db%.st %newbkp%\
 ECHO %DATE% %TIME:~0,8% Ne naiden fail struktury BD "ub.st" v kataloge "%db%">>%logdir%\bkplog.txt
 )
 
-ECHO %DATE% %TIME:~0,8% Podkluchaem SETevoi disk X:>>%logdir%\bkplog.txt
+ECHO %DATE% %TIME:~0,8% Podkluchaem setevoi disk X:>>%logdir%\bkplog.txt
 REM NET USE X: /delete /y
 NET USE X: \\172.168.0.1\backup /u:172.168.0.1\userlogin userpassword>>%logdir%\bkplog.txt
 
@@ -98,7 +98,7 @@ COPY /y /z %newbkp%\%bkpfile%.7z %extbkp%\
 ECHO %DATE% %TIME:~0,8% Ne naiden backup BD "%bkpfile%.7z" v kataloge "%newbkp%">>%logdir%\bkplog.txt
 )
 
-REM ECHO %DATE% %TIME:~0,8% Otkluchaem SETevoi disk X:>>%logdir%\bkplog.txt
+REM ECHO %DATE% %TIME:~0,8% Otkluchaem setevoi disk X:>>%logdir%\bkplog.txt
 REM NET USE X: /d>>%logdir%\bkplog.txt
 ECHO %DATE% %TIME:~0,8% Rezervnoe kopirovanie zaversheno>>%logdir%\bkplog.txt
 REM PAUSE

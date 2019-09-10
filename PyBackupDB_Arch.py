@@ -97,7 +97,7 @@ if True:
     else:
         print('Файлы ' + newbkp + '*.7z' + ' отсутствуют')
 
-# subprocess.call([dlcbin + 'probkup', 'online', db, oldbkp + bkpfile])
+subprocess.call([dlcbin + 'probkup.bat', 'online', db, newbkp + bkpfile])
 
 subprocess.call([archdir + '7z.exe', 'a', newbkp + bkpfile + '.7z', newbkp + bkpfile, '-y', '-sdel'])
 

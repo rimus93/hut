@@ -1,4 +1,4 @@
-# PyBackupDB_Arch 0.1
+# PyBackupDB_Arch 0.2
 
 import os
 import time
@@ -9,7 +9,7 @@ import subprocess
 # Указываем папку Прогресса
 dlcbin = 'C:\\Progress10B\\bin\\'
 # Указываем папку БД
-db = 'C:\\DB\\ub'
+db = 'C:\\DB\\ub.db'
 # Определяем текущую дату
 day = int(time.strftime('%d'))
 # Указываем, сколько хранить бекапы
@@ -17,10 +17,12 @@ if int(day) <= 14:
     pastday = day + 17
 else:
     pastday = day - 14
+# Технический файл для проверки нового бекапа
+bkpverify = 'backup_online.db'
 # Определяем разрядность даты/новый бекап
-bkpfile = 'ub.bkp_' + str(day)
+bkpfile = 'backup_online.db_' + str(day)
 # Определяем старый заархивированный бекап
-bkpfileold = 'ub.bkp_' + str(pastday) + '.7z'
+bkpfileold = 'backup_online.db_' + str(pastday) + '.7z'
 # Указываем папку для нового бэкапа
 newbkp = 'C:\\backup_BD\\'
 # Указываем папку для старого бэкапа
@@ -97,17 +99,23 @@ if True:
     else:
         print('Файлы ' + newbkp + '*.7z' + ' отсутствуют')
 
-subprocess.call([dlcbin + 'probkup.bat', 'online', db, newbkp + bkpfile])
+subprocess.call([dlcbin + 'probkup.bat', 'online', db, newbkp + bkpverify, '-Bp', '20'])
+print('Файл бекапа ' + newbkp + bkpverify + ' создан')
+
+subprocess.call([dlcbin + 'prorest.bat', db, newbkp + bkpverify, '-Bp', '20', '-vp'])
+print('Файл бекапа ' + newbkp + bkpverify + ' проверен')
+
+os.rename(newbkp + bkpverify, newbkp + bkpfile)
+print('Проверенный файл бекапа ' + newbkp + bkpverify + ' переименован в ' + newbkp + bkpfile)
 
 subprocess.call([archdir + '7z.exe', 'a', newbkp + bkpfile + '.7z', newbkp + bkpfile, '-y', '-sdel'])
+print('Файл бекапа ' + newbkp + bkpfile + ' заархивирован в ' + newbkp + '*.7z')
 
 if os.path.exists(db + '.st'):
     shutil.copy(db + '.st', newbkp)
     print('Файл ' + db + '.st' + ' скопирован в ' + newbkp)
 else:
     print('Файл ' + db + '.st' + ' отсутствует')
-
-# subprocess.call('cmd /c "net use X: \\\\172.168.0.1\\backup /172.168.0.1\user userpassword"')
 
 if os.path.exists(newbkp + 'ub.st'):
     shutil.copy(newbkp + 'ub.st', extbkp)

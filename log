@@ -1,0 +1,68 @@
+OpenEdge Release 10.1B03 as of Sat Nov  3 00:53:18 EDT 2007
+
+152786 active blocks out of 152945 blocks in C:\DB\ub will be dumped. (6686)
+128 BI blocks will be dumped. (6688)
+Backup requires an estimated 600.1 MBytes of media. (9285)
+Restore would require an estimated 153611 db blocks using 149.7K of media. (9286)
+Backed up 152914 db blocks in 00:00:04
+Wrote a total of 3706 backup blocks using 492.2 MBytes of media. (13625)
+
+Backup complete. (3740)
+
+OpenEdge Release 10.1B03 as of Sat Nov  3 00:53:18 EDT 2007
+
+152786 active blocks out of 152945 blocks in C:\DB\ub will be dumped. (6686)
+128 BI blocks will be dumped. (6688)
+Backup requires an estimated 600.1 MBytes of media. (9285)
+Restore would require an estimated 153611 db blocks using 149.7K of media. (9286)
+Backed up 152914 db blocks in 00:00:03
+Wrote a total of 3706 backup blocks using 492.2 MBytes of media. (13625)
+
+Backup complete. (3740)
+
+OpenEdge Release 10.1B03 as of Sat Nov  3 00:53:18 EDT 2007
+
+152786 active blocks out of 152945 blocks in C:\DB\ub will be dumped. (6686)
+128 BI blocks will be dumped. (6688)
+Backup requires an estimated 600.1 MBytes of media. (9285)
+Restore would require an estimated 153611 db blocks using 149.7K of media. (9286)
+Backed up 152914 db blocks in 00:00:03
+Wrote a total of 3706 backup blocks using 492.2 MBytes of media. (13625)
+
+Backup complete. (3740)
+
+OpenEdge Release 10.1B03 as of Sat Nov  3 00:53:18 EDT 2007
+
+152786 active blocks out of 152945 blocks in C:\DB\ub will be dumped. (6686)
+128 BI blocks will be dumped. (6688)
+Backup requires an estimated 600.1 MBytes of media. (9285)
+Restore would require an estimated 153611 db blocks using 149.7K of media. (9286)
+Backed up 152914 db blocks in 00:00:03
+Wrote a total of 3706 backup blocks using 492.2 MBytes of media. (13625)
+
+Backup complete. (3740)
+
+OpenEdge Release 10.1B03 as of Sat Nov  3 00:53:18 EDT 2007
+This is a full backup of C:\DB\ub.db. (6759)
+This backup was taken Wed Sep 11 17:04:21 2019. (6760)
+The blocksize is 4096. (6994)
+Partial verification successfully read backup volume. (6765)
+Verify pass started. (3751)
+Verified 152914 db blocks in 00:00:12
+Backup for C:\DB\ub.db verified ok. (6758)
+
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+
+Scanning the drive:
+1 file, 516131840 bytes (493 MiB)
+
+Creating archive: C:\backup_BD\backup_online.db_11.7z
+
+Items to compress: 1
+
+
+Files read from disk: 1
+Archive size: 3970332 bytes (3878 KiB)
+
+Everything is Ok

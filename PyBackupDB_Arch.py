@@ -33,116 +33,134 @@ oldbkp = 'C:\\backup_BD\OLD_BKP\\'
 # Указываем папку для бэкапа на внешнем хранилище
 extbkp = 'C:\\Murmansk_DB_Backup\\'
 # Указываем файл для логирования
+logfile = 'C:\\backup_BD\\log_backup.txt'
+# Указываем тип логирования
 log = open('C:\\backup_BD\\log_backup.txt', 'a')
 # Указываем папку для хранения логов
 logdir = 'C:\\backup_BD\\'
 # Указываем папку архиватора
 archdir = 'C:\\backup_BD\\7-Zip\\'
 
-print('Папка СУБД Прогресс: ' + dlcbin, file = log)
-print('Папка БД: ' + db, file = log)
-print('Сегодняшний день месяца: ' + str(day), file = log)
-print('Бекап будет удалён за ' + str(pastday) + ' день месяца', file = log)
-print('Новый бэкап: ' + bkpfile, file = log)
-print('Старый бэкап для удаления: ' + bkpfileold, file = log)
-print('Папка нового бэкапа: ' + newbkp, file = log)
-print('Папка старого бэкапа: ' + oldbkp, file = log)
-print('Папка внешнего хранилища: ' + extbkp, file = log)
-print('Папка для хранения логов: ' + logdir, file = log)
-print('Папка архиватора: ' + archdir, file = log)
+# print(now + '***Бекапирование начато!***', file=log) Не имеет смысла, так как лог создания бекапа начинается раньше
 
-print(now + '***Бекапирование начато!***', file = log)
+print('Папка СУБД Прогресс: ' + dlcbin, file=log)
+print('Папка БД: ' + db, file=log)
+print('Сегодняшний день месяца: ' + str(day), file=log)
+print('Бекап будет удалён за ' + str(pastday) + ' день месяца', file=log)
+print('Новый бэкап: ' + bkpfile, file=log)
+print('Старый бэкап для удаления: ' + bkpfileold, file=log)
+print('Папка нового бэкапа: ' + newbkp, file=log)
+print('Папка старого бэкапа: ' + oldbkp, file=log)
+print('Папка внешнего хранилища: ' + extbkp, file=log)
+print('Папка для хранения логов: ' + logdir, file=log)
+print('Папка архиватора: ' + archdir, file=log)
+
+# Проверяем наличие папок для работы скрипта. Если их нет - они создаются
 
 if not os.path.isdir(newbkp):
     os.mkdir(newbkp)
-    print('Папка ' + newbkp + ' создана', file = log)
+    print('Папка ' + newbkp + ' создана', file=log)
 else:
-    print('Папка ' + newbkp + ' существует', file = log)
+    print('Папка ' + newbkp + ' существует', file=log)
 
 if not os.path.isdir(oldbkp):
     os.mkdir(oldbkp)
-    print('Папка ' + oldbkp + ' создана', file = log)
+    print('Папка ' + oldbkp + ' создана', file=log)
 else:
-    print('Папка ' + oldbkp + ' существует', file = log)
+    print('Папка ' + oldbkp + ' существует', file=log)
 
 if not os.path.isdir(extbkp):
     os.mkdir(extbkp)
-    print('Папка ' + extbkp + ' создана', file = log)
+    print('Папка ' + extbkp + ' создана', file=log)
 else:
-    print('Папка ' + extbkp + ' существует', file = log)
+    print('Папка ' + extbkp + ' существует', file=log)
 
 if not os.path.isdir(logdir):
     os.mkdir(logdir)
-    print('Папка ' + logdir + ' создана', file = log)
+    print('Папка ' + logdir + ' создана', file=log)
 else:
-    print('Папка ' + logdir + ' существует', file = log)
+    print('Папка ' + logdir + ' существует', file=log)
 
 if not os.path.isdir(archdir):
     os.mkdir(archdir)
-    print('Папка ' + archdir + ' создана', file = log)
+    print('Папка ' + archdir + ' создана', file=log)
 else:
-    print('Папка ' + archdir + ' существует', file = log)
+    print('Папка ' + archdir + ' существует', file=log)
+
+# Далее идут операции с файлами
 
 if os.path.exists(newbkp + 'ub.st'):
     shutil.copy(newbkp + 'ub.st', oldbkp)
-    print(now + 'Файл ' + newbkp + 'ub.st' + ' скопирован в ' + oldbkp, file = log)
+    print(now + 'Файл ' + newbkp + 'ub.st' + ' скопирован в ' + oldbkp, file=log)
 else:
-    print(now + 'Файл ' + newbkp + 'ub.st' + ' отсутствует', file = log)
+    print(now + 'Файл ' + newbkp + 'ub.st' + ' отсутствует', file=log)
 
 if True:
     oldarchs = glob.glob(oldbkp + '*7z')
     for arch7 in oldarchs:
         os.remove(arch7)
-        print(now + 'Файл ' + arch7 + ' удалён из ' + oldbkp, file = log)
+        print(now + 'Файл ' + arch7 + ' удалён из ' + oldbkp, file=log)
         break
     else:
-        print(now + 'Файлы ' + oldbkp + '*.7z' + ' отсутствуют', file = log)
+        print(now + 'Файлы ' + oldbkp + '*.7z' + ' отсутствуют', file=log)
 
 if True:
     for arch7 in glob.glob(newbkp + '*.7z'):
         shutil.move(arch7, oldbkp)
-        print(now + 'Файл ' + arch7 + ' перемещён в ' + oldbkp, file = log)
+        print(now + 'Файл ' + arch7 + ' перемещён в ' + oldbkp, file=log)
         break
     else:
-        print(now + 'Файлы ' + newbkp + '*.7z' + ' отсутствуют', file = log)
+        print(now + 'Файлы ' + newbkp + '*.7z' + ' отсутствуют', file=log)
 
-with open ('log', 'a') as f:
-    subprocess.call([dlcbin + 'probkup.bat', 'online', db + '.db', newbkp + bkpverify, '-Bp', '20'], stdout = f, shell = True)
-print(now + 'Файл бекапа ' + newbkp + bkpverify + ' создан', file = log)
+with open(logfile, 'a') as outfile:
+    argsbckp = [dlcbin + 'probkup.bat', 'online', db + '.db', newbkp + bkpverify, '-Bp', '20']
+    codebckp = subprocess.call(argsbckp, stdout=outfile)
+    if codebckp == 0:
+        print(now + 'Файл бекапа ' + newbkp + bkpverify + ' создан', file=log)
+    else:
+        print(now + 'Файл бекапа ' + newbkp + bkpverify + ' НЕ создан', file=log)
 
-with open ('log', 'a') as f:
-    subprocess.call([dlcbin + 'prorest.bat', db, newbkp + bkpverify, '-Bp', '20', '-vp'], stdout = f, shell = True)
-print(now + 'Файл бекапа ' + newbkp + bkpverify + ' проверен', file = log)
+with open(logfile, 'a') as outfile:
+    argsvrf = [dlcbin + 'prorest.bat', db, newbkp + bkpverify, '-Bp', '20', '-vp']
+    codevrf = subprocess.call(argsvrf, stdout=outfile)
+    if codevrf == 0:
+        print(now + 'Файл бекапа ' + newbkp + bkpverify + ' проверен', file=log)
+    else:
+        print(now + 'Файл бекапа ' + newbkp + bkpverify + ' НЕ проверен', file=log)
 
 os.rename(newbkp + bkpverify, newbkp + bkpfile)
-print(now + 'Проверенный файл бекапа ' + newbkp + bkpverify + ' переименован в ' + newbkp + bkpfile, file = log)
+print(now + 'Проверенный файл бекапа ' + newbkp + bkpverify + ' переименован в ' + newbkp + bkpfile, file=log)
 
-with open ('log', 'a') as f:
-    subprocess.call([archdir + '7z.exe', 'a', newbkp + bkpfile + '.7z', newbkp + bkpfile, '-y', '-sdel'], stdout = f, shell = True)
-print(now + 'Файл бэкапа ' + newbkp + bkpfile + ' заархивирован в ' + newbkp + '*.7z', file = log)
+with open(logfile, 'a') as outfile:
+    argsarh = [archdir + '7z.exe', 'a', newbkp + bkpfile + '.7z', newbkp + bkpfile, '-y', '-sdel']
+    codearh = subprocess.call(argsarh, stdout=outfile)
+    if codearh == 0:
+        print(now + 'Файл бэкапа ' + newbkp + bkpfile + ' заархивирован в ' + bkpfile + '.7z', file=log)
+    else:
+        print(now + 'Файл бэкапа ' + newbkp + bkpfile + ' НЕ заархивирован в ' + newbkp + '*.7z', file=log)
 
 if os.path.exists(db + '.st'):
     shutil.copy(db + '.st', newbkp)
-    print(now + 'Файл ' + db + '.st' + ' скопирован в ' + newbkp, file = log)
+    print(now + 'Файл ' + db + '.st' + ' скопирован в ' + newbkp, file=log)
 else:
-    print(now + 'Файл ' + db + '.st' + ' отсутствует', file = log)
+    print(now + 'Файл ' + db + '.st' + ' отсутствует', file=log)
 
 if os.path.exists(newbkp + 'ub.st'):
     shutil.copy(newbkp + 'ub.st', extbkp)
-    print(now + 'Файл ' + newbkp + 'ub.st' + ' скопирован в ' + extbkp, file = log)
+    print(now + 'Файл ' + newbkp + 'ub.st' + ' скопирован в ' + extbkp, file=log)
 else:
-    print(now + 'Файл ' + newbkp + 'ub.st' + ' отсутствует', file = log)
+    print(now + 'Файл ' + newbkp + 'ub.st' + ' отсутствует', file=log)
 
 if os.path.exists(extbkp + bkpfileold):
     os.remove(extbkp + bkpfileold)
-    print(now + 'Файл ' + bkpfileold + ' удалён из ' + extbkp, file = log)
+    print(now + 'Файл ' + bkpfileold + ' удалён из ' + extbkp, file=log)
 else:
-    print(now + 'Файл ' + extbkp + bkpfileold + ' отсутствует', file = log)
+    print(now + 'Файл ' + extbkp + bkpfileold + ' отсутствует', file=log)
 
 if os.path.exists(newbkp + bkpfile + '.7z'):
     shutil.copy(newbkp + bkpfile + '.7z', extbkp)
-    print(now + 'Файл ' + newbkp + bkpfile + '.7z' + ' скопирован в ' + extbkp, file = log)
+    print(now + 'Файл ' + newbkp + bkpfile + '.7z' + ' скопирован в ' + extbkp, file=log)
 else:
-    print(now + 'Файл ' + newbkp + bkpfile + '.7z' + ' отсутствует', file = log)
+    print(now + 'Файл ' + newbkp + bkpfile + '.7z' + ' отсутствует', file=log)
 
-print(now + '***Бэкапирование успешно завершено!***', file = log)
+print(now + '***Бэкапирование успешно завершено!***', file=log)

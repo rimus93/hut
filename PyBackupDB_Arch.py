@@ -1,4 +1,4 @@
-# PyBackupDB_Arch 0.2
+# PyBackupDB_Arch 0.3
 # -*- coding: utf-8 -*-
 
 import os

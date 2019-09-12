@@ -1,0 +1,63 @@
+OpenEdge Release 10.1B03 as of Sat Nov  3 00:53:18 EDT 2007
+
+152786 active blocks out of 152945 blocks in C:\DB\ub will be dumped. (6686)
+128 BI blocks will be dumped. (6688)
+Backup requires an estimated 600.1 MBytes of media. (9285)
+Restore would require an estimated 153611 db blocks using 149.7K of media. (9286)
+Backed up 152914 db blocks in 00:00:03
+Wrote a total of 3706 backup blocks using 492.2 MBytes of media. (13625)
+
+Backup complete. (3740)
+
+OpenEdge Release 10.1B03 as of Sat Nov  3 00:53:18 EDT 2007
+This is a full backup of C:\DB\ub.db. (6759)
+This backup was taken Thu Sep 12 14:24:35 2019. (6760)
+The blocksize is 4096. (6994)
+Partial verification successfully read backup volume. (6765)
+Verify pass started. (3751)
+Verified 152914 db blocks in 00:00:02
+Backup for C:\DB\ub.db verified ok. (6758)
+
+
+7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+
+Scanning the drive:
+1 file, 516131840 bytes (493 MiB)
+
+Creating archive: C:\backup_BD\backup_online.db_12.7z
+
+Items to compress: 1
+
+
+Files read from disk: 1
+Archive size: 3969107 bytes (3877 KiB)
+
+Everything is Ok
+Папка СУБД Прогресс: C:\Progress10B\bin\
+Папка БД: C:\DB\ub
+Сегодняшний день месяца: 12
+Бекап будет удалён за 29 день месяца
+Новый бэкап: backup_online.db_12
+Старый бэкап для удаления: backup_online.db_29.7z
+Папка нового бэкапа: C:\backup_BD\
+Папка старого бэкапа: C:\backup_BD\OLD_BKP\
+Папка внешнего хранилища: C:\Murmansk_DB_Backup\
+Папка для хранения логов: C:\backup_BD\
+Папка архиватора: C:\backup_BD\7-Zip\
+Папка C:\backup_BD\ существует
+Папка C:\backup_BD\OLD_BKP\ существует
+Папка C:\Murmansk_DB_Backup\ существует
+Папка C:\backup_BD\ существует
+Папка C:\backup_BD\7-Zip\ существует
+2019-09-12-14:24:35 Файл C:\backup_BD\ub.st скопирован в C:\backup_BD\OLD_BKP\
+2019-09-12-14:24:35 Файл C:\backup_BD\OLD_BKP\backup_online.db_12.7z удалён из C:\backup_BD\OLD_BKP\
+2019-09-12-14:24:35 Файл C:\backup_BD\backup_online.db_12.7z перемещён в C:\backup_BD\OLD_BKP\
+2019-09-12-14:24:35 Файл бекапа C:\backup_BD\backup_online.db создан
+2019-09-12-14:24:35 Файл бекапа C:\backup_BD\backup_online.db проверен
+2019-09-12-14:24:35 Проверенный файл бекапа C:\backup_BD\backup_online.db переименован в C:\backup_BD\backup_online.db_12
+2019-09-12-14:24:35 Файл бэкапа C:\backup_BD\backup_online.db_12 заархивирован в backup_online.db_12.7z
+2019-09-12-14:24:35 Файл C:\DB\ub.st скопирован в C:\backup_BD\
+2019-09-12-14:24:35 Файл C:\backup_BD\ub.st скопирован в C:\Murmansk_DB_Backup\
+2019-09-12-14:24:35 Файл C:\Murmansk_DB_Backup\backup_online.db_29.7z отсутствует
+2019-09-12-14:24:35 Файл C:\backup_BD\backup_online.db_12.7z скопирован в C:\Murmansk_DB_Backup\
+2019-09-12-14:24:35 ***Бэкапирование успешно завершено!***
